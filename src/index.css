@@ -1,0 +1,489 @@
+/* ---------- Design tokens ---------- */
+
+:root {
+  --bg: #0f172a; /* page background (dark slate navy) */
+  --card: #131d33; /* project card background */
+  --line: #1e293b; /* borders, dividers, media placeholder fill */
+  --line-strong: #334155; /* heading rules, placeholder borders */
+  --text-head: #e2e8f0; /* headings, primary text */
+  --text-body: #94a3b8; /* body text, context lines */
+  --text-dim: #64748b; /* footer, captions */
+  --accent: #384a40; /* fills and borders only — too dark for text */
+  --accent-soft: rgba(56, 74, 64, 0.3); /* secondary button fill */
+
+  /* The design is 1440px wide: 160px beside the text content and 40px beside
+     the project cards. On wider screens --extra adds equal space to both
+     sides, which keeps everything centered at 1440px. */
+  --extra: max(0px, (100vw - 1440px) / 2);
+  --pad: calc(160px + var(--extra));
+  --gutter: calc(40px + var(--extra));
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --pad: 80px;
+    --gutter: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --pad: 24px;
+    --gutter: 16px;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-body);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-head);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text-body);
+  outline-offset: 3px;
+}
+
+/* ---------- Shared pieces ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 11px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text-head);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: filter 0.15s;
+}
+
+.btn-primary {
+  background: var(--accent);
+}
+
+.btn-secondary {
+  background: var(--accent-soft);
+}
+
+a.btn:hover {
+  filter: brightness(1.25);
+}
+
+.text-link {
+  color: var(--text-head);
+  font-size: 14px;
+}
+
+a.text-link:hover {
+  text-decoration: underline;
+}
+
+/* A link whose URL hasn't been filled in yet (see LinkButton.jsx). */
+.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Grey box that stands in for a photo or video. */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--line);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  overflow: hidden;
+  color: var(--text-dim);
+  font-size: 13px;
+  text-align: center;
+  white-space: pre-line; /* keeps the line break in the placeholder text */
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+/* ---------- Nav ---------- */
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 24px var(--pad);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  color: var(--text-head);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  color: var(--text-head);
+  font-size: 13px;
+}
+
+.nav-links a:not(.btn):hover {
+  text-decoration: underline;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 104px var(--pad);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 0 1 640px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.hero-intro {
+  max-width: 600px;
+  font-size: 18px;
+}
+
+.hero-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.hero-photo {
+  flex: 0 0 400px;
+  height: 400px;
+}
+
+/* ---------- About ---------- */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* The heading rule runs past the text column, out to the card gutter. */
+  padding: 72px var(--gutter) 72px var(--pad);
+}
+
+.about-bio {
+  max-width: 760px;
+  font-size: 18px;
+}
+
+/* ---------- Projects ---------- */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 72px var(--gutter);
+}
+
+/* Lines the heading up with the rest of the page text (cards sit wider). */
+.projects-heading {
+  padding-left: calc(var(--pad) - var(--gutter));
+}
+
+.card {
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.card-main {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.card-media {
+  flex: 0 0 600px;
+  height: 300px;
+}
+
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  flex: 1;
+  min-width: 0; /* lets long text wrap instead of stretching the card */
+}
+
+.card-context {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: pre-wrap; /* keeps the double spaces around the "·" */
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.card-role {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: stretch;
+  padding: 2px 0 2px 16px;
+  border-left: 2px solid var(--accent);
+}
+
+.card-role-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-role-text {
+  color: var(--text-head);
+  font-size: 15px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.card-tags li {
+  padding: 5px 12px;
+  background: var(--accent);
+  border-radius: 999px;
+  color: var(--text-head);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-toggle {
+  margin-left: 8px;
+  padding: 11px 0;
+  background: none;
+  border: none;
+  color: var(--text-body);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.card-toggle:hover {
+  color: var(--text-head);
+}
+
+.card-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.card-details h4 {
+  margin-bottom: 6px;
+  color: var(--text-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-details p {
+  color: var(--text-head);
+  font-size: 15px;
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 96px var(--pad);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.contact-pitch {
+  max-width: 640px;
+  font-size: 17px;
+}
+
+.contact .button-row {
+  justify-content: center;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding: 24px var(--pad);
+  border-top: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.footer a:hover {
+  color: var(--text-body);
+}
+
+/* ---------- Smaller screens (not designed in Figma yet) ---------- */
+
+/* Cards: media stacks above the info. */
+@media (max-width: 1180px) {
+  .card-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .card-media {
+    flex: none;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+}
+
+/* Hero: photo stacks under the text. */
+@media (max-width: 1000px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .hero-text {
+    flex: none;
+  }
+
+  .hero-photo {
+    flex: none;
+    width: min(400px, 100%);
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  h2 {
+    font-size: 32px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-details {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
