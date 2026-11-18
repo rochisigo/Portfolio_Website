@@ -9,7 +9,12 @@ export default function ProjectCard({ project }) {
   // setShowDetails makes React re-render this card with the new value.
   const [showDetails, setShowDetails] = useState(false)
 
-  const commitsUrl = project.repo ? `${project.repo}/commits?author=${GITHUB_USERNAME}` : ''
+  // Use the project's own contributions link if it has one; otherwise build
+  // the standard "commits by me" URL from the repo.
+  const defaultContributionsUrl = project.repo
+    ? `${project.repo}/commits?author=${GITHUB_USERNAME}`
+    : ''
+  const contributionsUrl = project.contributions || defaultContributionsUrl
 
   // JSX is just a value, so it can be stored in a variable and placed in more
   // than one spot. The toggle sits under "My role" while the card is closed,
@@ -85,8 +90,8 @@ export default function ProjectCard({ project }) {
               <LinkButton href={project.repo} variant="primary" newTab>
                 GitHub repo ↗
               </LinkButton>
-              <LinkButton href={commitsUrl} variant="primary" newTab>
-                My commits ↗
+              <LinkButton href={contributionsUrl} variant="primary" newTab>
+                My contributions ↗
               </LinkButton>
             </div>
           </div>

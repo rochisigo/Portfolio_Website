@@ -6,7 +6,9 @@
 //   context  small uppercase line above the title (array, joined with " · ")
 //   video    file name inside public/media/ (e.g. 'aruco-demo.webm'), or null
 //   mediaNote  text shown in the grey box while there is no video
-//   repo     GitHub repo URL, or '' — "My commits" is built from it automatically
+//   repo     GitHub repo URL, or ''
+//   contributions  optional link for "My contributions". If left out, it's
+//            built from `repo` as <repo>/commits?author=rochisigo
 //   timeline one line of text, shown by "Show details"
 //   impact   "Challenges & impact" text, shown by "Show details".
 //            An array: each string becomes its own paragraph.
@@ -24,7 +26,9 @@ export const projects = [
     tags: ['ROS 2', 'OpenCV', '[language]', '[more]'],
     video: null,
     mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
-    repo: '',
+    repo: 'https://github.com/WisconsinRobotics/WRoverSoftware_25-26',
+    contributions:
+      'https://github.com/WisconsinRobotics/WRoverSoftware_25-26/commits/dev/aruco/?author=vboxuser@ubuntureal.myguest.virtualbox.org',
     timeline:
       'September 2025 – May 2026 · Competed at the University Rover Challenge in Utah',
     impact: [
