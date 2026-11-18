@@ -5,7 +5,7 @@ export default function Nav() {
   return (
     <header className="nav">
       <a className="nav-logo" href="#top">
-        rodrigo.arenas
+        Rodrigo Arenas
       </a>
       <nav className="nav-links">
         <a href="#about">About</a>
