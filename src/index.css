@@ -367,6 +367,35 @@ a.text-link:hover {
   border-top: 1px solid var(--line);
 }
 
+/* Write-up on the left, optional video on the right. */
+.card-details-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 48px;
+}
+
+.card-details-writeup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-figure {
+  width: 440px;
+  margin: 0;
+}
+
+.card-figure video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--line);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+}
+
 /* A label plus its text, e.g. "Project timeline". */
 .card-details-block {
   display: flex;
@@ -454,6 +483,15 @@ a.text-link:hover {
     flex: none;
     height: auto;
     aspect-ratio: 2 / 1;
+  }
+
+  /* Video moves under the write-up. */
+  .card-details-body {
+    grid-template-columns: 1fr;
+  }
+
+  .card-figure {
+    width: min(440px, 100%);
   }
 }
 

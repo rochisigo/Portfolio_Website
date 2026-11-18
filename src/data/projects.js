@@ -4,7 +4,11 @@
 // Fields:
 //   id       unique string, used as the React `key`
 //   context  small uppercase line above the title (array, joined with " · ")
-//   video    file name inside public/media/ (e.g. 'aruco-demo.webm'), or null
+//   video    file name inside public/media/ (e.g. 'aruco-demo.mp4'), or null.
+//            Plays in the closed card.
+//   poster   still image (also in public/media/) shown while `video` loads
+//   detailVideo  optional { label, src, poster } shown next to the write-up
+//            once the card is open; it only loads when the card is opened
 //   mediaNote  text shown in the grey box while there is no video
 //   repo     GitHub repo URL, or ''
 //   contributions  optional link for "My contributions". If left out, it's
@@ -24,8 +28,13 @@ export const projects = [
       'Detects ArUco tags and classifies mission objects using a depth camera on the rover, then drives a spiral search pattern to find each target autonomously and stop within 1 meter of it.',
     role: 'I built the ArUco tag detection pipeline end to end and helped label data and train the models for the mission objects. I also wrote the full spiral search algorithm, with a state machine that handles reorientation, detection and search completion. Finally, I wrote the integration script that runs object detection in parallel with obstacle avoidance (built by a teammate).',
     tags: ['ROS 2', 'OpenCV', '[language]', '[more]'],
-    video: null,
-    mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
+    video: 'object-detection-demo.mp4',
+    poster: 'object-detection-demo.jpg',
+    detailVideo: {
+      label: 'Complete search drive simulation',
+      src: 'search-drive-sim.mp4',
+      poster: 'search-drive-sim.jpg',
+    },
     repo: 'https://github.com/WisconsinRobotics/WRoverSoftware_25-26',
     contributions:
       'https://github.com/WisconsinRobotics/WRoverSoftware_25-26/commits/dev/aruco/?author=vboxuser@ubuntureal.myguest.virtualbox.org',

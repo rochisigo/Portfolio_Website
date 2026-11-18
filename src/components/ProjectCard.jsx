@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LinkButton from './LinkButton.jsx'
+import DemoVideo from './DemoVideo.jsx'
 
 const GITHUB_USERNAME = 'rochisigo'
 
@@ -36,12 +37,10 @@ export default function ProjectCard({ project }) {
         <div className="card-media placeholder">
           {/* Conditional rendering: the video if there is one, otherwise the note. */}
           {project.video ? (
-            <video
-              src={`${import.meta.env.BASE_URL}media/${project.video}`}
-              autoPlay
-              muted
-              loop
-              playsInline
+            <DemoVideo
+              src={project.video}
+              poster={project.poster}
+              label={`${project.title} demo`}
             />
           ) : (
             project.mediaNote
@@ -65,19 +64,39 @@ export default function ProjectCard({ project }) {
 
       {showDetails && (
         <div className="card-details">
-          <div className="card-details-block">
-            <h4 className="card-details-label">Project timeline</h4>
-            <p className="card-details-text">{project.timeline}</p>
-          </div>
+          <div className="card-details-body">
+            <div className="card-details-writeup">
+              <div className="card-details-block">
+                <h4 className="card-details-label">Project timeline</h4>
+                <p className="card-details-text">{project.timeline}</p>
+              </div>
 
-          <div className="card-details-block">
-            <h4 className="card-details-label">Challenges &amp; impact</h4>
-            {/* One <p> per string in the impact array. */}
-            {project.impact.map((paragraph) => (
-              <p key={paragraph} className="card-details-text">
-                {paragraph}
-              </p>
-            ))}
+              <div className="card-details-block">
+                <h4 className="card-details-label">Challenges &amp; impact</h4>
+                {/* One <p> per string in the impact array. */}
+                {project.impact.map((paragraph) => (
+                  <p key={paragraph} className="card-details-text">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* This whole section only exists while the card is open, so the
+                browser doesn't load this video until someone opens the card.
+                It then starts loading and plays, showing the poster meanwhile. */}
+            {project.detailVideo && (
+              <figure className="card-details-block card-figure">
+                <figcaption className="card-details-label">
+                  {project.detailVideo.label}
+                </figcaption>
+                <DemoVideo
+                  src={project.detailVideo.src}
+                  poster={project.detailVideo.poster}
+                  label={project.detailVideo.label}
+                />
+              </figure>
+            )}
           </div>
 
           <div className="card-footer">
