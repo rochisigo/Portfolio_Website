@@ -361,10 +361,17 @@ a.text-link:hover {
 .card-details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   margin-top: 28px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
+}
+
+/* A label plus its bullet list, e.g. "Project timeline". */
+.card-details-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .card-details-label {

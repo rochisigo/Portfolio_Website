@@ -66,14 +66,25 @@ export default function ProjectCard({ project }) {
 
       {showDetails && (
         <div className="card-details">
-          <h4 className="card-details-label">Challenges &amp; results</h4>
-          <ul className="card-details-list">
-            {detailItems.map((item) => (
-              <li key={item.label}>
-                {item.label}: {item.text}
-              </li>
-            ))}
-          </ul>
+          <div className="card-details-block">
+            <h4 className="card-details-label">Project timeline</h4>
+            <ul className="card-details-list">
+              {project.timeline.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="card-details-block">
+            <h4 className="card-details-label">Challenges &amp; results</h4>
+            <ul className="card-details-list">
+              {detailItems.map((item) => (
+                <li key={item.label}>
+                  {item.label}: {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="card-footer">
             <ul className="card-tags">

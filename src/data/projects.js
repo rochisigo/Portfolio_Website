@@ -7,6 +7,7 @@
 //   video    file name inside public/media/ (e.g. 'aruco-demo.webm'), or null
 //   mediaNote  text shown in the grey box while there is no video
 //   repo     GitHub repo URL, or '' — "My commits" is built from it automatically
+//   timeline list of milestones, shown by "Show details" (one bullet each)
 //   details  challenge / solution / outcome, shown by "Show details"
 //            (tags and repo buttons also only appear once details are open)
 //
@@ -23,6 +24,11 @@ export const projects = [
     video: null,
     mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
     repo: '',
+    timeline: [
+      '[Date]: [how it started]',
+      '[Date]: [key milestone]',
+      '[Date]: [where it stands now]',
+    ],
     details: {
       challenge: '[what made this hard]',
       solution: '[the approach that worked]',
@@ -40,6 +46,11 @@ export const projects = [
     video: null,
     mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
     repo: '',
+    timeline: [
+      '[Date]: [how it started]',
+      '[Date]: [key milestone]',
+      '[Date]: [where it stands now]',
+    ],
     details: {
       challenge: '[what made this hard]',
       solution: '[the approach that worked]',
@@ -58,6 +69,11 @@ export const projects = [
     video: null,
     mediaNote: 'demo coming soon',
     repo: '',
+    timeline: [
+      '[Date]: [how it started]',
+      '[Date]: [key milestone]',
+      '[Date]: [where it stands now]',
+    ],
     details: {
       challenge: '[what made this hard]',
       solution: '[the approach that worked]',
