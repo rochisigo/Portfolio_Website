@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LinkButton from './LinkButton.jsx'
 import DemoVideo from './DemoVideo.jsx'
+import RichText from './RichText.jsx'
 
 const GITHUB_USERNAME = 'rochisigo'
 
@@ -50,11 +51,15 @@ export default function ProjectCard({ project }) {
         <div className="card-info">
           <p className="card-context">{project.context.join('  ·  ')}</p>
           <h3 className="card-title">{project.title}</h3>
-          <p className="card-summary">{project.summary}</p>
+          <p className="card-summary">
+            <RichText text={project.summary} />
+          </p>
 
           <div className="card-role">
             <p className="card-role-label">My role</p>
-            <p className="card-role-text">{project.role}</p>
+            <p className="card-role-text">
+              <RichText text={project.role} />
+            </p>
           </div>
 
           {/* `condition && <jsx>` renders the JSX only when the condition is true. */}
@@ -68,7 +73,9 @@ export default function ProjectCard({ project }) {
             <div className="card-details-writeup">
               <div className="card-details-block">
                 <h4 className="card-details-label">Project timeline</h4>
-                <p className="card-details-text">{project.timeline}</p>
+                <p className="card-details-text">
+                  <RichText text={project.timeline} />
+                </p>
               </div>
 
               <div className="card-details-block">
@@ -76,7 +83,7 @@ export default function ProjectCard({ project }) {
                 {/* One <p> per string in the impact array. */}
                 {project.impact.map((paragraph) => (
                   <p key={paragraph} className="card-details-text">
-                    {paragraph}
+                    <RichText text={paragraph} />
                   </p>
                 ))}
               </div>

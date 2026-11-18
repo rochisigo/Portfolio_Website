@@ -19,19 +19,21 @@
 //   (tags and repo buttons also only appear once details are open)
 //
 // Text in [brackets] is placeholder copy that still needs to be written.
+// In summary, role, timeline and impact, wrap words in **double asterisks**
+// to make them bold.
 export const projects = [
   {
     id: 'aruco-search',
     context: ['Wisconsin Robotics', 'University Rover Challenge'],
     title: 'ArUco & Object Detection + Search Algorithm',
     summary:
-      'Detects ArUco tags and classifies mission objects using a depth camera on the rover, then drives a spiral search pattern to find each target autonomously and stop within 1 meter of it.',
-    role: 'I built the ArUco tag detection pipeline end to end and helped label data and train the models for the mission objects. I also wrote the full spiral search algorithm, with a state machine that handles reorientation, detection and search completion. Finally, I wrote the integration script that runs object detection in parallel with obstacle avoidance (built by a teammate).',
+      'Detects ArUco tags and classifies mission objects using a depth camera on the rover, then drives a contracting semicircular search pattern to find each target autonomously and stop within 1 meter of it.',
+    role: 'I built the ArUco tag detection pipeline end to end and helped label data and train the models for the mission objects. I also wrote the full search algorithm, which sweeps alternating semicircles that tighten inward, with a state machine that handles reorientation, detection and search completion. Finally, I wrote the integration script that runs object detection in parallel with obstacle avoidance (built by a teammate).',
     tags: ['ROS 2', 'OpenCV', '[language]', '[more]'],
     video: 'object-detection-demo.mp4',
     poster: 'object-detection-demo.jpg',
     detailVideo: {
-      label: 'Complete search drive simulation',
+      label: 'Full search drive simulation, visualized in RViz',
       src: 'search-drive-sim.mp4',
       poster: 'search-drive-sim.jpg',
     },
@@ -42,7 +44,7 @@ export const projects = [
       'September 2025 – May 2026 · Competed at the University Rover Challenge in Utah',
     impact: [
       'The biggest challenge was starting this project with no robotics experience and only beginner-level programming skills. To really learn, I wrote most of the code myself instead of relying on past years’ solutions or AI tools. Working through problems from first principles, I ended up discovering core robotics concepts before I knew their names: a finite state machine for the search behavior, and projective geometry with homogeneous coordinates for estimating the position of objects relative to the camera.',
-      'This became the autonomy system our rover ran throughout the competition, helping Wisconsin Robotics place 12th out of 116 teams worldwide. It’s the project I’m most proud of.',
+      'This became the autonomy system our rover ran throughout the competition, helping Wisconsin Robotics place **12th out of 116 teams** worldwide. It’s the project I’m most proud of.',
     ],
   },
   {
