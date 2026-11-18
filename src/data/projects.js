@@ -52,14 +52,17 @@ export const projects = [
     context: ['Wisconsin Robotics', 'University Rover Challenge'],
     title: 'Rover Simulation in Unity',
     summary:
-      'A Unity simulation of the rover connected to our ROS 2 stack, so the team can test autonomy code without the physical rover.',
-    role: '[2–3 sentences on your part — e.g. leading the simulation effort, importing the URDF into Unity, and bridging it to ROS 2.]',
+      'A Unity simulation of our rover that talks to the same ROS 2 topics as the real robot, so any subteam can test its code without the physical rover. It recreates the competition setting: terrain from the actual competition site, ArUco tags, competition objects, and an astronaut that guides the rover with gestures, like the real person does during the autonomous mission.',
+    role: 'I built the simulated robot and its ROS 2 integration: I turned our CAD model into a working Unity robot, wrote the swerve drive and the animated astronaut in C#, and published odometry, joint states, and camera images while subscribing to velocity commands.',
     tags: ['Unity', 'ROS 2 Humble', 'ROS#', 'Onshape → URDF'],
-    video: null,
-    mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
+    video: 'unity-sim-demo.mp4',
+    poster: 'unity-sim-demo.jpg',
     repo: '',
-    timeline: '[Start – end dates] · [key milestone]',
-    impact: ['[The biggest challenge, how you solved it, and what the team gained.]'],
+    timeline: 'September 2026 – Present · Currently used to test other subteams’ code',
+    impact: [
+      'The real rover’s suspension uses a differential bar, a closed-loop linkage that URDF can’t represent. I recreated it in code so the rockers turn in opposite directions at a 1:1 ratio, matching the real rover.',
+      'Our team of about 60 members can now test their work without depending on the weather or on the rover being available. The simulation will also help future teams and make onboarding new members easier, and we plan to package it as an app anyone can run.',
+    ],
   },
   {
     // Always last: little progress yet.
