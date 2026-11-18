@@ -212,6 +212,19 @@ a.text-link:hover {
   font-weight: 700;
 }
 
+/* Name plus the one-line professional profile right under it. */
+.hero-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero-tagline {
+  color: var(--text-head);
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .hero-intro {
   max-width: 600px;
   font-size: 18px;
