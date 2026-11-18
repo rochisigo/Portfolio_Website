@@ -7,9 +7,10 @@
 //   video    file name inside public/media/ (e.g. 'aruco-demo.webm'), or null
 //   mediaNote  text shown in the grey box while there is no video
 //   repo     GitHub repo URL, or '' — "My commits" is built from it automatically
-//   timeline list of milestones, shown by "Show details" (one bullet each)
-//   details  challenge / solution / outcome, shown by "Show details"
-//            (tags and repo buttons also only appear once details are open)
+//   timeline one line of text, shown by "Show details"
+//   impact   "Challenges & impact" text, shown by "Show details".
+//            An array: each string becomes its own paragraph.
+//   (tags and repo buttons also only appear once details are open)
 //
 // Text in [brackets] is placeholder copy that still needs to be written.
 export const projects = [
@@ -18,22 +19,18 @@ export const projects = [
     context: ['Wisconsin Robotics', 'University Rover Challenge'],
     title: 'ArUco & Object Detection + Search Algorithm',
     summary:
-      "Detects ArUco tags and mission objects from the rover's cameras and drives a search pattern to find them autonomously.",
-    role: '[2–3 sentences on what you personally designed and built — e.g. the search algorithm, how it hooks into the detector, and how you tested it on the rover.]',
+      'Detects ArUco tags and classifies mission objects using a depth camera on the rover, then drives a spiral search pattern to find each target autonomously and stop within 1 meter of it.',
+    role: 'I built the ArUco tag detection pipeline end to end and helped label data and train the models for the mission objects. I also wrote the full spiral search algorithm, with a state machine that handles reorientation, detection and search completion. Finally, I wrote the integration script that runs object detection in parallel with obstacle avoidance (built by a teammate).',
     tags: ['ROS 2', 'OpenCV', '[language]', '[more]'],
     video: null,
     mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
     repo: '',
-    timeline: [
-      '[Date]: [how it started]',
-      '[Date]: [key milestone]',
-      '[Date]: [where it stands now]',
+    timeline:
+      'September 2025 – May 2026 · Competed at the University Rover Challenge in Utah',
+    impact: [
+      'The biggest challenge was starting this project with no robotics experience and only beginner-level programming skills. To really learn, I wrote most of the code myself instead of relying on past years’ solutions or AI tools. Working through problems from first principles, I ended up discovering core robotics concepts before I knew their names: a finite state machine for the search behavior, and projective geometry with homogeneous coordinates for estimating the position of objects relative to the camera.',
+      'This became the autonomy system our rover ran throughout the competition, helping Wisconsin Robotics place 12th out of 116 teams worldwide. It’s the project I’m most proud of.',
     ],
-    details: {
-      challenge: '[what made this hard]',
-      solution: '[the approach that worked]',
-      outcome: '[results, numbers, what the team gained]',
-    },
   },
   {
     id: 'unity-sim',
@@ -46,16 +43,8 @@ export const projects = [
     video: null,
     mediaNote: '▶  demo video loop\n(muted MP4 / WebM, autoplay)',
     repo: '',
-    timeline: [
-      '[Date]: [how it started]',
-      '[Date]: [key milestone]',
-      '[Date]: [where it stands now]',
-    ],
-    details: {
-      challenge: '[what made this hard]',
-      solution: '[the approach that worked]',
-      outcome: '[results, numbers, what the team gained]',
-    },
+    timeline: '[Start – end dates] · [key milestone]',
+    impact: ['[The biggest challenge, how you solved it, and what the team gained.]'],
   },
   {
     // Always last: little progress yet.
@@ -69,15 +58,7 @@ export const projects = [
     video: null,
     mediaNote: 'demo coming soon',
     repo: '',
-    timeline: [
-      '[Date]: [how it started]',
-      '[Date]: [key milestone]',
-      '[Date]: [where it stands now]',
-    ],
-    details: {
-      challenge: '[what made this hard]',
-      solution: '[the approach that worked]',
-      outcome: '[results, numbers, what the team gained]',
-    },
+    timeline: '[Start – end dates] · [key milestone]',
+    impact: ['[The biggest challenge, how you solved it, and what came of it.]'],
   },
 ]

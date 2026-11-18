@@ -367,11 +367,11 @@ a.text-link:hover {
   border-top: 1px solid var(--line);
 }
 
-/* A label plus its bullet list, e.g. "Project timeline". */
+/* A label plus its text, e.g. "Project timeline". */
 .card-details-block {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .card-details-label {
@@ -382,8 +382,8 @@ a.text-link:hover {
   text-transform: uppercase;
 }
 
-.card-details-list {
-  padding-left: 18px;
+.card-details-text {
+  max-width: 900px; /* keeps long paragraphs at a readable line length */
   color: var(--text-head);
   font-size: 15px;
 }

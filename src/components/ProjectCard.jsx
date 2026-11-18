@@ -11,12 +11,6 @@ export default function ProjectCard({ project }) {
 
   const commitsUrl = project.repo ? `${project.repo}/commits?author=${GITHUB_USERNAME}` : ''
 
-  const detailItems = [
-    { label: 'Biggest challenge', text: project.details.challenge },
-    { label: 'How I solved it', text: project.details.solution },
-    { label: 'Outcome', text: project.details.outcome },
-  ]
-
   // JSX is just a value, so it can be stored in a variable and placed in more
   // than one spot. The toggle sits under "My role" while the card is closed,
   // and moves to the bottom of the card once it's open.
@@ -68,22 +62,17 @@ export default function ProjectCard({ project }) {
         <div className="card-details">
           <div className="card-details-block">
             <h4 className="card-details-label">Project timeline</h4>
-            <ul className="card-details-list">
-              {project.timeline.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ul>
+            <p className="card-details-text">{project.timeline}</p>
           </div>
 
           <div className="card-details-block">
-            <h4 className="card-details-label">Challenges &amp; results</h4>
-            <ul className="card-details-list">
-              {detailItems.map((item) => (
-                <li key={item.label}>
-                  {item.label}: {item.text}
-                </li>
-              ))}
-            </ul>
+            <h4 className="card-details-label">Challenges &amp; impact</h4>
+            {/* One <p> per string in the impact array. */}
+            {project.impact.map((paragraph) => (
+              <p key={paragraph} className="card-details-text">
+                {paragraph}
+              </p>
+            ))}
           </div>
 
           <div className="card-footer">
