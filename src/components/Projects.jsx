@@ -5,9 +5,7 @@ import { projects } from '../data/projects.js'
 export default function Projects() {
   return (
     <section className="projects" id="projects">
-      <div className="projects-heading">
-        <SectionHeading>Projects</SectionHeading>
-      </div>
+      <SectionHeading>Projects</SectionHeading>
 
       {/* .map() turns each project object into a card. React needs a stable,
           unique `key` on each one so it can tell the cards apart between renders. */}

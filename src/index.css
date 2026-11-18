@@ -234,8 +234,8 @@ a.text-link:hover {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  /* The heading rule runs past the text column, out to the card gutter. */
-  padding: 72px var(--gutter) 72px var(--pad);
+  /* Same side padding as Projects, so the heading lines up with the cards. */
+  padding: 72px var(--gutter);
 }
 
 .about-bio {
@@ -250,11 +250,6 @@ a.text-link:hover {
   flex-direction: column;
   gap: 28px;
   padding: 72px var(--gutter);
-}
-
-/* Lines the heading up with the rest of the page text (cards sit wider). */
-.projects-heading {
-  padding-left: calc(var(--pad) - var(--gutter));
 }
 
 .card {
