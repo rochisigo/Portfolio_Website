@@ -57,7 +57,9 @@ export const projects = [
     tags: ['Unity', 'ROS 2 Humble', 'ROS#', 'Onshape → URDF'],
     video: 'unity-sim-demo.mp4',
     poster: 'unity-sim-demo.jpg',
-    repo: '',
+    repo: 'https://github.com/WisconsinRobotics/WRoverSoftware_Simulation',
+    contributions:
+      'https://github.com/WisconsinRobotics/WRoverSoftware_Simulation/commits/dev/?author=rochisigo',
     timeline: 'September 2026 – Present · Currently used to test other subteams’ code',
     impact: [
       'The real rover’s suspension uses a differential bar, a closed-loop linkage that URDF can’t represent. I recreated it in code so the rockers turn in opposite directions at a 1:1 ratio, matching the real rover.',
