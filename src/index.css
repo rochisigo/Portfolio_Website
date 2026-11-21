@@ -294,6 +294,7 @@ a.text-link:hover {
 .card-media-caption {
   color: var(--text-dim);
   font-size: 13px;
+  text-align: center;
 }
 
 .card-media video {
