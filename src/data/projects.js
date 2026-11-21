@@ -33,7 +33,7 @@ export const projects = [
     summary:
       'Detects ArUco tags and classifies mission objects using a depth camera on the rover, then drives a contracting semicircular search pattern to find each target autonomously and stop within 1 meter of it.',
     role: 'I built the ArUco tag detection pipeline end to end and helped label data and train the models for the mission objects. I also wrote the full search algorithm, which sweeps alternating semicircles that tighten inward, with a state machine that handles reorientation, detection and search completion. Finally, I wrote the integration script that runs object detection in parallel with obstacle avoidance (built by a teammate).',
-    tags: ['ROS 2', 'OpenCV', 'YOLO', 'Computer Vision', '[language]', '[more]'],
+    tags: ['ROS 2', 'OpenCV', 'YOLO', 'Computer Vision', 'Python', '[more]'],
     video: 'object-detection-demo.mp4',
     poster: 'object-detection-demo.jpg',
     detailVideo: {
