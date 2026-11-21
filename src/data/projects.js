@@ -33,7 +33,7 @@ export const projects = [
     summary:
       'Detects ArUco tags and classifies mission objects using a depth camera on the rover, then drives a contracting semicircular search pattern to find each target autonomously and stop within 1 meter of it.',
     role: 'I built the ArUco tag detection pipeline end to end and helped label data and train the models for the mission objects. I also wrote the full search algorithm, which sweeps alternating semicircles that tighten inward, with a state machine that handles reorientation, detection and search completion. Finally, I wrote the integration script that runs object detection in parallel with obstacle avoidance (built by a teammate).',
-    tags: ['ROS 2', 'OpenCV', 'YOLO', 'Computer Vision', 'Python', '[more]'],
+    tags: ['ROS 2', 'OpenCV', 'YOLO', 'Computer Vision', 'Python'],
     video: 'object-detection-demo.mp4',
     poster: 'object-detection-demo.jpg',
     detailVideo: {
@@ -58,7 +58,7 @@ export const projects = [
     summary:
       'A Unity simulation of our rover that talks to the same ROS 2 topics as the real robot, so any subteam can test its code without the physical rover. It recreates the competition setting: terrain from the actual competition site, ArUco tags, competition objects, and an astronaut that guides the rover with gestures, like the real person does during the autonomous mission.',
     role: 'I built the simulated robot and its ROS 2 integration: I turned our CAD model into a working Unity robot, wrote the swerve drive and the animated astronaut in C#, and published odometry, joint states, and camera images while subscribing to velocity commands.',
-    tags: ['Unity', 'ROS 2 Humble', 'ROS#', 'Onshape → URDF'],
+    tags: ['Unity', 'ROS 2', 'ROS#', 'URDF', 'C#'],
     video: 'unity-sim-demo.mp4',
     poster: 'unity-sim-demo.jpg',
     videoCaption:
