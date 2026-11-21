@@ -35,12 +35,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* TODO: replace with <img src=... alt="Rodrigo Arenas" /> once there's a headshot */}
-      <div className="hero-photo placeholder">
-        photo of you
-        <br />
-        (or you with the rover)
-      </div>
+      {/* Files in public/ live under the base path, so build on BASE_URL. */}
+      <img
+        className="hero-photo"
+        src={`${import.meta.env.BASE_URL}media/headshot.jpg`}
+        alt="Rodrigo Arenas"
+      />
     </section>
   )
 }
