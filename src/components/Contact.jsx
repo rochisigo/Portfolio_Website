@@ -15,9 +15,6 @@ export default function Contact() {
         <LinkButton href={site.linkedin} newTab>
           LinkedIn ↗
         </LinkButton>
-        <LinkButton href={site.github} newTab>
-          GitHub ↗
-        </LinkButton>
         <LinkButton href={site.resume} newTab>
           View résumé ↗
         </LinkButton>

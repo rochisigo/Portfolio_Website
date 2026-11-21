@@ -32,9 +32,6 @@ export default function Hero() {
           <LinkButton href={site.linkedin} variant="text" newTab>
             LinkedIn ↗
           </LinkButton>
-          <LinkButton href={site.github} variant="text" newTab>
-            GitHub ↗
-          </LinkButton>
         </div>
       </div>
 
