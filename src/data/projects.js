@@ -16,6 +16,7 @@
 //   timeline one line of text, shown by "Show details"
 //   impact   "Challenges & impact" text, shown by "Show details".
 //            An array: each string becomes its own paragraph.
+//   impactLabel  optional heading for `impact` (default "Challenges & impact")
 //   (tags and repo buttons also only appear once details are open)
 //
 // Text in [brackets] is placeholder copy that still needs to be written.
@@ -72,13 +73,17 @@ export const projects = [
     context: ['CS 580', 'Intelligent Robotics'],
     title: 'Basketball-Playing Humanoid',
     summary:
-      'A humanoid robot that plays basketball. [Short description for now — expand as the project takes shape.]',
-    role: '[Your part of the project, once defined.]',
-    tags: ['[stack TBD]'],
+      'A simulated NAO humanoid in Webots that plays basketball by itself. It finds a ball placed randomly on the floor, walks to it, squats to pick it up, then walks to a shooting point. There it finds the basket, turns to face it, and picks the right shot for one of various setups. Everything it knows about the ball and basket comes from its head cameras.',
+    role: 'I’m building the vision system and the pickup. I’m training CNNs that estimate the ball’s position and recognize which basket setup the robot is facing. I’m also writing the inverse kinematics that move the arms to the ball during the squat, and a Kalman filter that localizes the ball’s position while the robot walks.',
+    tags: ['Webots', 'Python', 'PyTorch', 'CNN', 'Inverse Kinematics', 'Kalman Filter'],
     video: null,
     mediaNote: 'demo coming soon',
     repo: '',
-    timeline: '[Start – end dates] · [key milestone]',
-    impact: ['[The biggest challenge, how you solved it, and what came of it.]'],
+    timeline: 'October 2026 – Present · Final project for CS 580 (team of 2)',
+    impactLabel: 'Challenges & approach',
+    impact: [
+      'Instead of labeling thousands of images by hand for the CNN, a supervisor script places the ball and basket at random positions and saves each camera image with the true position, so the training data labels itself.',
+      'As the robot gets close, the ball leaves the camera’s view. That’s why we’re using a Kalman filter that combines the robot’s actual movements with camera measurements, so the robot can keep tracking the ball until its hands reach it.',
+    ],
   },
 ]

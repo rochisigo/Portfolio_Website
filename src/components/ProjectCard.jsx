@@ -79,7 +79,10 @@ export default function ProjectCard({ project }) {
               </div>
 
               <div className="card-details-block">
-                <h4 className="card-details-label">Challenges &amp; impact</h4>
+                {/* `??` uses the default heading when the project doesn't set impactLabel. */}
+                <h4 className="card-details-label">
+                  {project.impactLabel ?? 'Challenges & impact'}
+                </h4>
                 {/* One <p> per string in the impact array. */}
                 {project.impact.map((paragraph) => (
                   <p key={paragraph} className="card-details-text">
