@@ -9,5 +9,5 @@ export const site = {
   // Files in public/ are served from the site's base path. BASE_URL is '/' in
   // some setups and '/Portfolio_Website/' on GitHub Pages, so build on it
   // instead of hardcoding '/resume.pdf'.
-  resume: `${import.meta.env.BASE_URL}resume.pdf`, // TODO: add public/resume.pdf
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
 }
