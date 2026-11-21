@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import LinkButton from './LinkButton.jsx'
-import DemoVideo from './DemoVideo.jsx'
+import DemoVideo, { mediaUrl } from './DemoVideo.jsx'
 import RichText from './RichText.jsx'
 
 const GITHUB_USERNAME = 'rochisigo'
@@ -37,13 +37,16 @@ export default function ProjectCard({ project }) {
       <div className="card-main">
         <figure className="card-media-column">
           <div className="card-media placeholder">
-            {/* Conditional rendering: the video if there is one, otherwise the note. */}
+            {/* Conditional rendering: the video if there is one, else the
+                still image, else the text note. */}
             {project.video ? (
               <DemoVideo
                 src={project.video}
                 poster={project.poster}
                 label={`${project.title} demo`}
               />
+            ) : project.image ? (
+              <img src={mediaUrl(project.image)} alt={project.imageAlt} />
             ) : (
               project.mediaNote
             )}

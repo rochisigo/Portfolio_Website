@@ -4,7 +4,7 @@
 //
 // Files in public/ are served from the site's base path ('/Portfolio_Website/'
 // on GitHub Pages), so the URLs are built on BASE_URL instead of '/media/...'.
-const mediaUrl = (file) => `${import.meta.env.BASE_URL}media/${file}`
+export const mediaUrl = (file) => `${import.meta.env.BASE_URL}media/${file}`
 
 export default function DemoVideo({ src, poster, label }) {
   return (

@@ -7,7 +7,9 @@
 //   video    file name inside public/media/ (e.g. 'aruco-demo.mp4'), or null.
 //            Plays in the closed card.
 //   poster   still image (also in public/media/) shown while `video` loads
-//   videoCaption  optional small text shown under the closed-card video
+//   image    still image in public/media/, shown when there's no `video`
+//   imageAlt  description of `image` for screen readers
+//   videoCaption  optional small text shown under the video or image
 //   detailVideo  optional { label, src, poster } shown next to the write-up
 //            once the card is open; it only loads when the card is opened
 //   mediaNote  text shown in the grey box while there is no video
@@ -80,7 +82,9 @@ export const projects = [
     role: 'I’m building the vision system and the pickup. I’m training CNNs that estimate the ball’s position and recognize which basket setup the robot is facing. I’m also writing the inverse kinematics that move the arms to the ball during the squat, and a Kalman filter that localizes the ball’s position while the robot walks.',
     tags: ['Webots', 'Python', 'PyTorch', 'CNN', 'Inverse Kinematics', 'Kalman Filter'],
     video: null,
-    mediaNote: 'demo coming soon',
+    image: 'humanoid-sim.jpg',
+    imageAlt: 'Simulated NAO humanoid standing on a checkered floor in Webots, with the basket behind it',
+    videoCaption: 'Demo coming soon',
     repo: '',
     timeline: 'October 2026 – Present · Final project for CS 580 (team of 2)',
     impactLabel: 'Challenges & approach',
