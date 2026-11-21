@@ -278,9 +278,22 @@ a.text-link:hover {
   gap: 48px;
 }
 
-.card-media {
+/* Holds the video and its optional caption underneath. */
+.card-media-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   flex: 0 0 600px;
+  margin: 0;
+}
+
+.card-media {
   height: 300px;
+}
+
+.card-media-caption {
+  color: var(--text-dim);
+  font-size: 13px;
 }
 
 .card-media video {
@@ -492,8 +505,11 @@ a.text-link:hover {
     gap: 28px;
   }
 
-  .card-media {
+  .card-media-column {
     flex: none;
+  }
+
+  .card-media {
     height: auto;
     aspect-ratio: 2 / 1;
   }

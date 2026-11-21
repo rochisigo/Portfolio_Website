@@ -7,6 +7,7 @@
 //   video    file name inside public/media/ (e.g. 'aruco-demo.mp4'), or null.
 //            Plays in the closed card.
 //   poster   still image (also in public/media/) shown while `video` loads
+//   videoCaption  optional small text shown under the closed-card video
 //   detailVideo  optional { label, src, poster } shown next to the write-up
 //            once the card is open; it only loads when the card is opened
 //   mediaNote  text shown in the grey box while there is no video
@@ -58,6 +59,8 @@ export const projects = [
     tags: ['Unity', 'ROS 2 Humble', 'ROS#', 'Onshape → URDF'],
     video: 'unity-sim-demo.mp4',
     poster: 'unity-sim-demo.jpg',
+    videoCaption:
+      'Gesture following: a Y pose tells the rover to follow the astronaut, a T pose tells it to stop.',
     repo: 'https://github.com/WisconsinRobotics/WRoverSoftware_Simulation',
     contributions:
       'https://github.com/WisconsinRobotics/WRoverSoftware_Simulation/commits/dev/?author=rochisigo',

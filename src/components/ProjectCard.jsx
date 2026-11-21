@@ -35,18 +35,25 @@ export default function ProjectCard({ project }) {
   return (
     <article className="card">
       <div className="card-main">
-        <div className="card-media placeholder">
-          {/* Conditional rendering: the video if there is one, otherwise the note. */}
-          {project.video ? (
-            <DemoVideo
-              src={project.video}
-              poster={project.poster}
-              label={`${project.title} demo`}
-            />
-          ) : (
-            project.mediaNote
+        <figure className="card-media-column">
+          <div className="card-media placeholder">
+            {/* Conditional rendering: the video if there is one, otherwise the note. */}
+            {project.video ? (
+              <DemoVideo
+                src={project.video}
+                poster={project.poster}
+                label={`${project.title} demo`}
+              />
+            ) : (
+              project.mediaNote
+            )}
+          </div>
+          {project.videoCaption && (
+            <figcaption className="card-media-caption">
+              <RichText text={project.videoCaption} />
+            </figcaption>
           )}
-        </div>
+        </figure>
 
         <div className="card-info">
           <p className="card-context">{project.context.join('  ·  ')}</p>
