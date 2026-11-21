@@ -58,7 +58,7 @@ export const projects = [
     summary:
       'A Unity simulation of our rover that talks to the same ROS 2 topics as the real robot, so any subteam can test its code without the physical rover. It recreates the competition setting: terrain from the actual competition site, ArUco tags, competition objects, and an astronaut that guides the rover with gestures, like the real person does during the autonomous mission.',
     role: 'I built the simulated robot and its ROS 2 integration: I turned our CAD model into a working Unity robot, wrote the swerve drive and the animated astronaut in C#, and published odometry, joint states, and camera images while subscribing to velocity commands.',
-    tags: ['Unity', 'ROS 2', 'ROS#', 'URDF', 'C#'],
+    tags: ['Unity', 'ROS 2', 'ROS#', 'URDF', 'C#', 'Docker'],
     video: 'unity-sim-demo.mp4',
     poster: 'unity-sim-demo.jpg',
     videoCaption:
